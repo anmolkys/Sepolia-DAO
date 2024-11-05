@@ -4,8 +4,9 @@ import ProposalsList from "./components/ProposalsList";
 import ProposalModal from "./components/ProposalModal";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { FaPlus } from "react-icons/fa";
-import SepoliaLogo from './logo.png';
+import { FaPlus, FaEthereum, FaGithub } from "react-icons/fa";
+import { FaFaucetDrip , FaWallet } from "react-icons/fa6";
+import Howto from "./components/Howto";
 import './App.css';
 
 const App = () => {
@@ -85,47 +86,59 @@ const App = () => {
   };
 
   return (
-    <div className="App dark-theme">
-      <header className="app-header">
-        <h1>Interactive DAO</h1>
-        <br></br>
-        <label>by 21BCE0534</label>
-        <div className="network-info">
-          <span>Network: Sepolia Etherium</span>
-          <img src={SepoliaLogo} alt="Sepolia Network Logo" className="network-logo" />
+    <>
+      <header className="header">
+        <div>Interactive DAO</div>
+        <div className="logos">
+          <a href="https://github.com/anmolkys/Sepolia-DAO"><FaGithub className="logo"></FaGithub></a>
+          <a href="https://www.alchemy.com/faucets/ethereum-sepolia"><FaFaucetDrip className="logo"></FaFaucetDrip></a>
         </div>
       </header>
-      {isConnected && <div className="create-proposal-btn"  onClick={() => setShowModal(true)} >New Proposal<FaPlus /></div>}
-      {!isConnected ? (
-        <button onClick={connectWallet} className="connect-wallet-btn">
-          Connect Wallet
-        </button>
-      ) : (
-        <>
-          {loading ? (
-            <div className="spinner"></div>
-          ) : (
-            <ProposalsList proposals={proposals} vote={vote} execute={execute} />
-          )}
-        </>
-      )}
+      <div className="App dark-theme">
+        <h3>Digital Assignment 3&4</h3>
+        <label>by 21BCE0534</label>
+        <div className="network-info">
+          <span>Using : Sepolia Etherium</span>
+          <FaEthereum></FaEthereum>
+        </div>
+        {isConnected && <div className="create-proposal-btn" onClick={() => setShowModal(true)} >New Proposal<FaPlus /></div>}
+        {!isConnected ? (
+          <div className="walletContainer">
+          <button onClick={connectWallet} className="connect-wallet-btn">
+            Metamask
+            <FaWallet></FaWallet>
+          </button>
+          <Howto></Howto>
+          </div>
+        ) : (
+          <>
+            {loading ? (
+              <div className="spinner"></div>
+            ) : (
+              <div className="main">
+                <ProposalsList proposals={proposals} vote={vote} execute={execute} className="proposal" />
+                <Howto></Howto>
+              </div>
+            )}
+          </>
+        )}
 
-      <ProposalModal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        createProposal={handleCreateProposal}
-      />
-      <footer className="app-footer">
-        <p>
-          Track this DAO on{" "}
-          <a href={ETHERSCAN_URL} target="_blank" rel="noopener noreferrer">
-            Etherscan
-          </a>
-        </p>
-      </footer>
-      <ToastContainer />
-    </div>
+        <ProposalModal
+          show={showModal}
+          onClose={() => setShowModal(false)}
+          createProposal={handleCreateProposal}
+        />
+        <footer className="app-footer">
+          <p>
+            Track this DAO on{" "}
+            <a href={ETHERSCAN_URL} target="_blank" rel="noopener noreferrer" style={{color:"green"}}>
+              Etherscan
+            </a>
+          </p>
+        </footer>
+        <ToastContainer />
+      </div>
+    </>
   );
 };
-
 export default App;

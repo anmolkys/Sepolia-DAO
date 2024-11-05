@@ -1,8 +1,7 @@
-/* src/App.css */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #121212;
+  background-color: rgb(0,0,0);
   color: white;
 }
 
@@ -14,12 +13,11 @@ html, body, #root {
 .App {
   text-align: center;
   padding: 20px;
-  background-color: #121212;
+  background-color: rgb(0,0,0);
   color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 h1 {
@@ -71,6 +69,7 @@ h1 {
   background-color: #1f1f1f;
   border: 1px solid #2a2a2a;
   border-radius: 10px;
+  width: 50%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
@@ -233,4 +232,80 @@ h1 {
   .modal-content {
     width: 100%;
   }
+}
+.header{
+  padding-right: 2%;
+  padding-left: 2%;
+  height: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: 1px whitesmoke solid;
+}
+
+.logos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:3.7%;
+  padding: 5px;
+}
+
+.logo:hover{
+  color: #3c89ed;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.network-info{
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+}
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.howTO{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.proposals-list{
+  width: 50%;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.proposalUL{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.howtoItem{
+  width: 90%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+}
+.walletContainer{
+  justify-content: center;
+  justify-items: center;
+}
+.connect-wallet-btn{
+  display: flex;
+  width: 9.5%;
+  justify-content: space-between;
 }

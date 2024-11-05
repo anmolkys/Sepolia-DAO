@@ -4,11 +4,10 @@ import { FaCheck, FaHourglassHalf } from "react-icons/fa";
 const ProposalsList = ({ proposals, vote, execute }) => {
   return (
     <div className="proposals-list">
-      <h2>Proposals</h2>
       {proposals.length === 0 ? (
         <p>No proposals found.</p>
       ) : (
-        <ul>
+        <ul className="proposalUL">
           {proposals.map((proposal, index) => (
             <li key={index} className="proposal-card">
               <div className="proposal-info">
