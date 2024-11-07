@@ -105,7 +105,7 @@ const App = () => {
         {!isConnected ? (
           <div className="walletContainer">
           <button onClick={connectWallet} className="connect-wallet-btn">
-            Metamask
+            Metamask  
             <FaWallet></FaWallet>
           </button>
           <Howto></Howto>
